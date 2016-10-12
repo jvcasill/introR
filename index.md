@@ -41,6 +41,11 @@ assets      : {assets: ./assets}
   - comments
   - objects: assigning variables
 
+---
+
+## Data structures
+
+- Vectors
 
 
 
