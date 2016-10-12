@@ -1,8 +1,9 @@
 ---
 title       : Data analysis in R
 subtitle    : A gentle introduction
-author      : Joseph Casillas
-job         : 10/17/2016
+author      : Joseph V. Casillas, PhD
+job         : 
+github      : #{user: jvcasill, repo: introR}
 framework   : io2012
 highlighter : highlight.js
 hitheme     : tomorrow 
