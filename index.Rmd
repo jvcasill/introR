@@ -156,6 +156,24 @@ print(x)
 x + 4
 ```
 
+---
+
+## Scripting language
+
+### Functions
+
+- The way we get things done in R is via functions
+- A function in a command that performs an operation
+	- ```sum()```
+	- ```mean()```
+	- ```lm()```
+- Functions take arguements
+	- ```sum(x)``` = calculate the sum of the values in the vector 'x'
+	- ```mean(x)``` = calculate the mean of the values in the vector 'x'
+	- ```lm(y ~ x)``` = fit a linear model ('y' as a function of 'x')
+- ```R``` has many, many functions
+- If you can't find one that does what you want, you can create it and share it in an R package (i.e. ```lingStuff```)
+
 --- .segue bg:grey
 
 # Data structures
