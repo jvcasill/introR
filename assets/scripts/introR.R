@@ -116,16 +116,15 @@ df <- data.frame(subj = x,
                  ht = y.ht)
 
 
+
+
+
+
 df %>%
-  gather(., key = var, value = value, -subj, -group) %>%
+  gather(., key = variables, value = value, -subj, -group) %>%
   ggplot(., aes(x = var, y = value, fill = group)) + 
   geom_jitter() +
   geom_boxplot()
 
-df %>%
-  ggplot(., aes(x = ht, y = wt)) + 
-  geom_point(aes(colour = iq, shape = group)) +
-  geom_smooth(method = 'lm', alpha = 0.2, color = 'red', 
-              formula = y ~ x, fullrange = T) + 
-  ylim(0, 230) + xlim(0, 90) +
-  theme_bw()
+
+

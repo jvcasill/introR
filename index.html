@@ -604,15 +604,16 @@ print(testDF)
 
 <pre><code class="r">x &lt;- seq(1:30)
 g &lt;- gl(n = 2, k = 15, length = 30, labels = c(&#39;females&#39;, &#39;males&#39;))
-y.iq &lt;- rnorm(n = 30, mean = 80, sd = 18)
+y.iq &lt;- rnorm(n = 30, mean = 115, sd = 25)
 y.wt &lt;- rnorm(n = 30, mean = 170, sd = 50)
 y.ht &lt;- rnorm(n = 30, mean = 60, sd = 15)
+
 
 df &lt;- data.frame(subj = x, 
                  group = g, 
                  iq = y.iq, 
                  wt = sort(y.wt), 
-                 ht = y.ht)
+                 ht = sort(y.ht))
 </code></pre>
 
   </article>
@@ -628,16 +629,20 @@ df &lt;- data.frame(subj = x,
 <li>Let&#39;s look at &#39;df&#39; using the <code>head()</code> function</li>
 </ul>
 
-<pre><code class="r">head(df)
+<pre><code class="r">head(df, n = 10)
 </code></pre>
 
-<pre><code>##   subj   group      y.iq     y.wt     y.ht
-## 1    1 females  83.00503 117.4432 72.58193
-## 2    2 females  76.66422 130.7212 80.70134
-## 3    3 females  64.01063 134.0213 70.37594
-## 4    4 females  89.37450 139.0162 76.52936
-## 5    5 females  75.03665 140.6232 69.35115
-## 6    6 females 106.38916 148.5338 54.38731
+<pre><code>##    subj   group        iq       wt       ht
+## 1     1 females  83.00503 117.4432 72.58193
+## 2     2 females  76.66422 130.7212 80.70134
+## 3     3 females  64.01063 134.0213 70.37594
+## 4     4 females  89.37450 139.0162 76.52936
+## 5     5 females  75.03665 140.6232 69.35115
+## 6     6 females 106.38916 148.5338 54.38731
+## 7     7 females  93.87176 151.9163 64.24166
+## 8     8 females  75.91671 158.0517 44.18082
+## 9     9 females  83.77371 162.5080 72.33028
+## 10   10 females  61.82068 167.3675 50.50666
 </code></pre>
 
   </article>
@@ -645,6 +650,241 @@ df &lt;- data.frame(subj = x,
 </slide>
 
 <slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Manipulating dataframes</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>What kind of variables does the dataframe have?</li>
+</ul>
+
+<pre><code class="r">str(df)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    30 obs. of  5 variables:
+##  $ subj : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ group: Factor w/ 2 levels &quot;females&quot;,&quot;males&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ iq   : num  119.2 110.4 92.8 128 108.1 ...
+##  $ wt   : num  117 131 134 139 141 ...
+##  $ ht   : num  72.6 80.7 70.4 76.5 69.4 ...
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Manipulating dataframes</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>How do we look at subsets of the dataframe? <strong>Bracket operators</strong> </li>
+</ul>
+
+<pre><code class="r">df[1, ]
+</code></pre>
+
+<pre><code>##   subj   group       iq       wt       ht
+## 1    1 females 119.1737 117.4432 72.58193
+</code></pre>
+
+<pre><code class="r">df[, 1]
+</code></pre>
+
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+## [24] 24 25 26 27 28 29 30
+</code></pre>
+
+<ul class = "build incremental">
+<li>Show me the 10th row of the 3rd column</li>
+<li><code>df[10, 3]</code></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>Manipulating dataframes</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">df[10, 3]
+</code></pre>
+
+<pre><code>## [1] 89.75095
+</code></pre>
+
+<pre><code class="r">df[10:15, ]
+</code></pre>
+
+<pre><code>##    subj   group        iq       wt       ht
+## 10   10 females  89.75095 167.3675 50.50666
+## 11   11 females 128.35394 167.5636 46.45168
+## 12   12 females 131.88419 170.3667 55.60011
+## 13   13 females 124.63044 179.5391 37.13279
+## 14   14 females  78.78856 179.5429 52.46047
+## 15   15 females  89.28179 184.2407 24.73771
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>Manipulating dataframes</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>We can also use levels of the categorical factor to subset and perform
+and operation on the result</li>
+<li>Give me the average IQ of just the males</li>
+</ul>
+
+<pre><code class="r">mean(df[df$group == &#39;males&#39;, &#39;iq&#39;])
+</code></pre>
+
+<pre><code>## [1] 123.2026
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue" id="slide-29" style="background:grey;">
+  <hgroup>
+    <h1>Data visualization</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-30" style="background:;">
+  <hgroup>
+    <h2>ggplot2</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>ggplot2</code> is a package that simplifies data visualization</li>
+<li>&#39;Grammar of graphics&#39;</li>
+<li>Princple components
+
+<ul>
+<li>aesthetics (variables in your dataframe)<br>
+i.e. x, y, size, colour, shape</li>
+<li>geoms (the type of elements in the plot)<br>
+i.e. points, boxplots, lines, etc.</li>
+</ul></li>
+<li>Let&#39;s plot the data from the <code>df</code> dataframe</li>
+</ul>
+
+<pre><code>ggplot(df, aes(x = ht, y = wt)) + 
+geom_point() 
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-31" style="background:;">
+  <hgroup>
+    <h2>ggplot2</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/plotHTWT1-1.png" title="plot of chunk plotHTWT1" alt="plot of chunk plotHTWT1" width="864" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  <hgroup>
+    <h2>ggplot2</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/plotHTWT2-1.png" title="plot of chunk plotHTWT2" alt="plot of chunk plotHTWT2" width="864" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-33" style="background:;">
+  <hgroup>
+    <h2>ggplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Let&#39;s look at our dataframe <code>df</code> with the categorical factor <code>group</code></li>
+</ul>
+
+<pre><code>df %&gt;%
+  gather(., key = variables, value = value, -subj, -group) %&gt;%
+  ggplot(., aes(x = var, y = value, fill = group)) + 
+  geom_jitter() +
+  geom_boxplot()
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-34" style="background:;">
+  <hgroup>
+    <h2>ggplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/dfPlot-1.png" title="plot of chunk dfPlot" alt="plot of chunk dfPlot" width="864" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue" id="slide-35" style="background:grey;">
+  <hgroup>
+    <h1>Data analysis</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-36" style="background:;">
+  <hgroup>
+    <h2>Data analysis</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>There are many packages created for R that make it possible to do a wide 
+range of sophisticated analyses</li>
+<li>linear models, mixed effects models, random forrests, bayesian models</li>
+<li>Most models use a function (i.e. <code>lm()</code>) and the model is fit using a formula</li>
+</ul>
+
+<pre><code>lm(formula = wt ~ ht, data = df)
+</code></pre>
+
+<p></br></p>
+
+<!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
+
+<!-- Sat Oct 15 01:09:28 2016 -->
+
+<table border=1>
+<tr> <th>  </th> <th> Estimate </th> <th> Std. Error </th> <th> t value </th> <th> Pr(&gt;|t|) </th>  </tr>
+  <tr> <td align="right"> (Intercept) </td> <td align="right"> 42.2455 </td> <td align="right"> 8.5974 </td> <td align="right"> 4.91 </td> <td align="right"> 0.0000 </td> </tr>
+  <tr> <td align="right"> ht </td> <td align="right"> 2.5055 </td> <td align="right"> 0.1411 </td> <td align="right"> 17.75 </td> <td align="right"> 0.0000 </td> </tr>
+   </table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-37" style="background:;">
   <article data-timings="">
     <!--
 ----
@@ -718,7 +958,7 @@ peak at some of the areas discussed.
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-26" style="background:;">
+<slide class="" id="slide-38" style="background:;">
   <hgroup>
     <h2>Thank you</h2>
   </hgroup>
@@ -884,14 +1124,86 @@ peak at some of the areas discussed.
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='NA'>
+        data-slide=25 title='Manipulating dataframes'>
          25
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='Thank you'>
+        data-slide=26 title='Manipulating dataframes'>
          26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Manipulating dataframes'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Manipulating dataframes'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='Data visualization'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='ggplot2'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='ggplot2'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='ggplot2'>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='ggplot'>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='ggplot'>
+         34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title='Data analysis'>
+         35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='Data analysis'>
+         36
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title='NA'>
+         37
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='Thank you'>
+         38
       </a>
     </li>
   </ul>
