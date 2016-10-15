@@ -16,4 +16,4 @@ Introduction to programing in R
 
 ----
 
-Download scripts [here](www.jvcasillas.com/introR/assets/scripts/introR.R)
+Download scripts [here](http://www.jvcasillas.com/introR/assets/scripts/introR.R)
