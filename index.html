@@ -59,6 +59,60 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
+    <h2>Before we start...</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>RU ready?</h3>
+
+<ul>
+<li>Download <a href="https://cran.r-project.org">R</a></li>
+<li>Download <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a></li>
+<li>Download <a href="http://www.jvcasillas.com/introR/assets/scripts/introR.R">scripts</a></li>
+<li>Follow the presentation <a href="http://www.jvcasillas.com/introR/">www.jvcasillas.com/introR/</a></li>
+</ul>
+
+<h3>Let&#39;s start</h3>
+
+<ul class = "build incremental">
+<li>Open RStudio</li>
+<li>Open the file <code>introR.R</code> in RStudio (File &gt; Open file)</li>
+<li>Highlight lines 1-19</li>
+<li>Type <code>command</code> + <code>enter</code></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <article data-timings="">
+    <pre><code>1  ###############################################################################
+2  # Intro to R                                                                  #
+3  # Joseph V. Casillas, PhD                                                     #
+4  # 10/02/2016                                                                  #
+5  ###############################################################################
+6
+7  # clean working directory
+8  rm(list = ls(all = TRUE))
+9
+10 # Install required packages
+11 packages &lt;- c(&quot;ggplot2&quot;, &quot;dplyr&quot;, &quot;tidyr&quot;, &quot;lme4&quot;, &quot;devtools&quot;, &quot;lingStuff&quot;)
+12 if (length(setdiff(packages, rownames(installed.packages()))) &gt; 0) {
+13    install.packages(setdiff(packages, rownames(installed.packages())))  
+14 }
+15
+16 # Load packages
+17 library(tidyr); library(dplyr); library(ggplot2); library(lme4); 
+18 library(devtools); library(lingStuff)
+19
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
     <h2>Outline</h2>
   </hgroup>
   <article data-timings="">
@@ -82,7 +136,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-2" style="background:grey;">
+<slide class="segue" id="slide-4" style="background:grey;">
   <hgroup>
     <h1>What is R?</h1>
   </hgroup>
@@ -92,7 +146,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-3" style="background:;">
+<slide class="" id="slide-5" style="background:;">
   <hgroup>
     <h2>What is R?</h2>
   </hgroup>
@@ -111,7 +165,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-4" style="background:;">
+<slide class="" id="slide-6" style="background:;">
   <hgroup>
     <h2>R environment</h2>
   </hgroup>
@@ -124,7 +178,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-5" style="background:grey;">
+<slide class="segue" id="slide-7" style="background:grey;">
   <hgroup>
     <h1>Object oriented programming</h1>
   </hgroup>
@@ -134,7 +188,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-6" style="background:;">
+<slide class="" id="slide-8" style="background:;">
   <hgroup>
     <h2>Object oriented programming</h2>
   </hgroup>
@@ -154,7 +208,7 @@ than logic.</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-7" style="background:;">
+<slide class="" id="slide-9" style="background:;">
   <hgroup>
     <h2>The console</h2>
   </hgroup>
@@ -175,7 +229,7 @@ than logic.</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-8" style="background:;">
+<slide class="" id="slide-10" style="background:;">
   <hgroup>
     <h2>R as a calculator</h2>
   </hgroup>
@@ -221,7 +275,7 @@ than logic.</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-9" style="background:;">
+<slide class="" id="slide-11" style="background:;">
   <hgroup>
     <h2>Scripting language</h2>
   </hgroup>
@@ -244,7 +298,7 @@ than logic.</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-12" style="background:;">
   <hgroup>
     <h2>Scripting language</h2>
   </hgroup>
@@ -267,7 +321,7 @@ than logic.</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-11" style="background:;">
+<slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h2>Scripting language</h2>
   </hgroup>
@@ -300,7 +354,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-12" style="background:;">
+<slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h2>Scripting language</h2>
   </hgroup>
@@ -331,7 +385,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-13" style="background:grey;">
+<slide class="segue" id="slide-15" style="background:grey;">
   <hgroup>
     <h1>Data structures</h1>
   </hgroup>
@@ -341,15 +395,14 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-14" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>Data structures</h2>
   </hgroup>
   <article data-timings="">
-    <ul>
-<li>R uses several different types of data structures</li>
-<li>We will focus on three</li>
-</ul>
+    <h3>R uses several different types of data structures</h3>
+
+<p>We will focus on three</p>
 
 <ol>
 <li>Vectors</li>
@@ -361,7 +414,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h2>Vectors</h2>
   </hgroup>
@@ -390,7 +443,7 @@ print(x); print(y); print(z)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h2>Vectors</h2>
   </hgroup>
@@ -428,7 +481,7 @@ x + 1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>Matrices</h2>
   </hgroup>
@@ -468,7 +521,7 @@ x + 1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Dataframes</h2>
   </hgroup>
@@ -493,7 +546,7 @@ print(testDF)
 
 <ul>
 <li><code>head(mtcars)</code></li>
-<li><code>head(Titanic)</code></li>
+<li><code>head(USArrests)</code></li>
 </ul></li>
 </ul>
 
@@ -501,7 +554,7 @@ print(testDF)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-21" style="background:;">
   <article data-timings="">
     <pre><code class="r">head(mtcars); head(USArrests)
 </code></pre>
@@ -528,7 +581,7 @@ print(testDF)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-20" style="background:grey;">
+<slide class="segue" id="slide-22" style="background:grey;">
   <hgroup>
     <h1>Manipulating dataframes</h1>
   </hgroup>
@@ -538,7 +591,7 @@ print(testDF)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Manipulating dataframes</h2>
   </hgroup>
@@ -557,12 +610,43 @@ y.ht &lt;- rnorm(n = 30, mean = 60, sd = 15)
 
 df &lt;- data.frame(subj = x, 
                  group = g, 
-                 y.iq = y.iq, 
-                 y.wt = sort(y.wt), 
-                 y.ht = y.ht)
+                 iq = y.iq, 
+                 wt = sort(y.wt), 
+                 ht = y.ht)
 </code></pre>
 
-<!--
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Manipulating dataframes</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Let&#39;s look at &#39;df&#39; using the <code>head()</code> function</li>
+</ul>
+
+<pre><code class="r">head(df)
+</code></pre>
+
+<pre><code>##   subj   group      y.iq     y.wt     y.ht
+## 1    1 females  83.00503 117.4432 72.58193
+## 2    2 females  76.66422 130.7212 80.70134
+## 3    3 females  64.01063 134.0213 70.37594
+## 4    4 females  89.37450 139.0162 76.52936
+## 5    5 females  75.03665 140.6232 69.35115
+## 6    6 females 106.38916 148.5338 54.38731
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <article data-timings="">
+    <!--
 ----
 
 # Basic overview
@@ -634,67 +718,83 @@ peak at some of the areas discussed.
   <!-- Presenter Notes -->
 </slide>
 
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Thank you</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Slides on <a href="https://github.com/jvcasill/introR">github</a></li>
+<li>Scripts available <a href="http://www.jvcasillas.com/introR/assets/scripts/introR.R">here</a></li>
+</ul>
+
+<p><a href="mailto:joseph.casillas@rutgers.edu">joseph.casillas@rutgers.edu</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
     <slide class="backdrop"></slide>
   </slides>
   <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Outline'>
+        data-slide=1 title='Before we start...'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='What is R?'>
+        data-slide=2 title='NA'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='What is R?'>
+        data-slide=3 title='Outline'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='R environment'>
+        data-slide=4 title='What is R?'>
          4
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Object oriented programming'>
+        data-slide=5 title='What is R?'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='Object oriented programming'>
+        data-slide=6 title='R environment'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='The console'>
+        data-slide=7 title='Object oriented programming'>
          7
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='R as a calculator'>
+        data-slide=8 title='Object oriented programming'>
          8
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title='Scripting language'>
+        data-slide=9 title='The console'>
          9
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='Scripting language'>
+        data-slide=10 title='R as a calculator'>
          10
       </a>
     </li>
@@ -712,56 +812,86 @@ peak at some of the areas discussed.
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Data structures'>
+        data-slide=13 title='Scripting language'>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='Data structures'>
+        data-slide=14 title='Scripting language'>
          14
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='Vectors'>
+        data-slide=15 title='Data structures'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='Vectors'>
+        data-slide=16 title='Data structures'>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='Matrices'>
+        data-slide=17 title='Vectors'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Dataframes'>
+        data-slide=18 title='Vectors'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='NA'>
+        data-slide=19 title='Matrices'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Manipulating dataframes'>
+        data-slide=20 title='Dataframes'>
          20
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='Manipulating dataframes'>
+        data-slide=21 title='NA'>
          21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Manipulating dataframes'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Manipulating dataframes'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Manipulating dataframes'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='NA'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Thank you'>
+         26
       </a>
     </li>
   </ul>

@@ -15,6 +15,48 @@ biglogo     : ru.png
 assets      : {assets: ./assets}
 ---
 
+## Before we start...
+
+### RU ready?
+
+- Download [R](https://cran.r-project.org)
+- Download [RStudio](https://www.rstudio.com/products/rstudio/download/)
+- Download [scripts](http://www.jvcasillas.com/introR/assets/scripts/introR.R)
+- Follow the presentation www.jvcasillas.com/introR/
+
+### Let's start
+
+>- Open RStudio
+- Open the file ```introR.R``` in RStudio (File > Open file)
+- Highlight lines 1-19
+- Type ```command``` + ```enter```
+
+---
+
+```
+1  ###############################################################################
+2  # Intro to R                                                                  #
+3  # Joseph V. Casillas, PhD                                                     #
+4  # 10/02/2016                                                                  #
+5  ###############################################################################
+6
+7  # clean working directory
+8  rm(list = ls(all = TRUE))
+9
+10 # Install required packages
+11 packages <- c("ggplot2", "dplyr", "tidyr", "lme4", "devtools", "lingStuff")
+12 if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
+13    install.packages(setdiff(packages, rownames(installed.packages())))  
+14 }
+15
+16 # Load packages
+17 library(tidyr); library(dplyr); library(ggplot2); library(lme4); 
+18 library(devtools); library(lingStuff)
+19
+```
+
+---
+
 ## Outline
 
 <div style="float:right">
@@ -182,8 +224,8 @@ x + 4
 
 ## Data structures
 
-- R uses several different types of data structures
-- We will focus on three
+### R uses several different types of data structures  
+We will focus on three
 
 1. Vectors
 2. Matrices
@@ -260,7 +302,7 @@ print(testDF)
 - R comes with some dataframes installed
 - Try using the command ```head()``` with the following dataframes
 	- ```head(mtcars)```
-	- ```head(Titanic)```
+	- ```head(USArrests)```
 
 ---
 
@@ -289,10 +331,28 @@ y.ht <- rnorm(n = 30, mean = 60, sd = 15)
 
 df <- data.frame(subj = x, 
                  group = g, 
-                 y.iq = y.iq, 
-                 y.wt = sort(y.wt), 
-                 y.ht = y.ht)
+                 iq = y.iq, 
+                 wt = sort(y.wt), 
+                 ht = y.ht)
 ```
+
+---
+
+## Manipulating dataframes
+
+- Let's look at 'df' using the ```head()``` function
+
+```{r, 'checkdf'}
+head(df)
+```
+
+---
+
+
+
+
+
+
 
 
 
@@ -370,3 +430,11 @@ peak at some of the areas discussed.
 -->
 
 
+---
+
+## Thank you
+
+- Slides on [github](https://github.com/jvcasill/introR)
+- Scripts available [here](http://www.jvcasillas.com/introR/assets/scripts/introR.R)
+
+joseph.casillas@rutgers.edu
