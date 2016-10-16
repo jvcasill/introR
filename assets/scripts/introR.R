@@ -51,6 +51,9 @@ x + 4
 
 
 
+
+
+
 ###################
 # Data structures #
 ###################
@@ -76,7 +79,6 @@ x + y
 y + z
 
 
-
 # Matrices #
 
 matrix(1:10, nrow = 5, ncol = 2)
@@ -93,6 +95,10 @@ print(testDF)
 # The head() function shows the 1st six rows of a dataframe
 head(mtcars)
 head(USArrests)
+
+
+
+
 
 
 
@@ -116,6 +122,28 @@ df <- data.frame(subj = x,
                  wt = sort(y.wt), 
                  ht = y.ht)
 
+# Let's take a look at 'df'
+head(df, n = 10)
+
+# Let's see the structure (str) of 'df'
+str(df)
+
+# Subsets: row 1 (first participant), all columns
+df[1, ]
+
+# Subsets: all rows, first column (subj identification column)
+df[, 1]
+
+# How can we see the 10th row of the 3rd column?
+
+# How can we rows 10 through 15, all columns?
+
+# Let's create a subset and perform an operation on it 
+# We will calculate the mean IQ of just the male participants
+mean(df[df$group == 'males', 'iq'])
+
+# This is equivilant to...
+mean(df[16:30, 3])
 
 
 
@@ -126,6 +154,11 @@ df <- data.frame(subj = x,
 ######################
 
 
+# Basic example 
+ggplot(data = df, aes(x = ht, y = wt)) + 
+geom_point()
+
+# Boxplot including all 4 variables (ht, wt, iq, group)
 df %>%
   gather(., key = variables, value = value, -subj, -group) %>%
   ggplot(., aes(x = var, y = value, fill = group)) + 
@@ -135,10 +168,37 @@ df %>%
 
 
 
+
+
 #################
 # Data analysis #
 #################
 
+# Run a bivariate linear regression
 lm(formula = wt ~ ht, data = df) %>% summary
+
+# Run an 1-way between subjects anova 
+# (wt as a function of group)
+aov(formula = wt ~ group, data = df) %>% summary 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
