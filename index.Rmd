@@ -365,11 +365,11 @@ str(df)
 - How do we look at subsets of the dataframe? **Bracket operators** 
 
 ```{r bracket1}
-df[1, ] 
+df[1, ]  
 ```
 
 ```{r bracket2}
-df[, 1] 
+df[, 1]  
 ```
 
 >- Show me the 10th row of the 3rd column
@@ -380,11 +380,11 @@ df[, 1]
 ## Manipulating dataframes
 
 ```{r bracket3}
-df[10, 3] 
+df[10, 3]  
 ```
 
 ```{r bracket4}
-df[10:15, ] 
+df[10:15, ]  
 ```
 
 ---
@@ -396,7 +396,7 @@ and operation on the result
 - Give me the average IQ of just the males 
 
 ```{r bracket5}
-mean(df[df$group == 'males', 'iq'])  
+mean(df[df$group == 'males', 'iq']) 
 ```
 
 --- .segue bg:grey

@@ -683,14 +683,14 @@ df &lt;- data.frame(subj = x,
 <li>How do we look at subsets of the dataframe? <strong>Bracket operators</strong> </li>
 </ul>
 
-<pre><code class="r">df[1, ] 
+<pre><code class="r">df[1, ]  
 </code></pre>
 
 <pre><code>##   subj   group       iq      wt       ht
-## 1    1 females 99.33865 101.147 96.02427
+## 1    1 females 99.33865 101.147 32.92562
 </code></pre>
 
-<pre><code class="r">df[, 1] 
+<pre><code class="r">df[, 1]  
 </code></pre>
 
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
@@ -711,22 +711,22 @@ df &lt;- data.frame(subj = x,
     <h2>Manipulating dataframes</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">df[10, 3] 
+    <pre><code class="r">df[10, 3]  
 </code></pre>
 
 <pre><code>## [1] 107.3653
 </code></pre>
 
-<pre><code class="r">df[10:15, ] 
+<pre><code class="r">df[10:15, ]  
 </code></pre>
 
 <pre><code>##    subj   group        iq       wt       ht
-## 10   10 females 107.36529 157.3319 92.58918
-## 11   11 females 152.79453 161.7738 67.13264
-## 12   12 females 124.74608 163.2473 49.35080
-## 13   13 females  99.46899 164.3827 69.16090
-## 14   14 females  59.63250 164.8606 45.98854
-## 15   15 females 143.12327 167.0343 41.19550
+## 10   10 females 107.36529 157.3319 55.43724
+## 11   11 females 152.79453 161.7738 57.97232
+## 12   12 females 124.74608 163.2473 59.41140
+## 13   13 females  99.46899 164.3827 60.01658
+## 14   14 females  59.63250 164.8606 60.42003
+## 15   15 females 143.12327 167.0343 61.11512
 </code></pre>
 
   </article>
@@ -744,7 +744,7 @@ and operation on the result</li>
 <li>Give me the average IQ of just the males </li>
 </ul>
 
-<pre><code class="r">mean(df[df$group == &#39;males&#39;, &#39;iq&#39;])  
+<pre><code class="r">mean(df[df$group == &#39;males&#39;, &#39;iq&#39;]) 
 </code></pre>
 
 <pre><code>## [1] 116.6018
@@ -862,7 +862,7 @@ range of sophisticated analyses</li>
 
 <!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
 
-<!-- Sun Oct 16 18:59:16 2016 -->
+<!-- Sun Oct 16 19:01:04 2016 -->
 
 <table border=1>
 <tr> <th>  </th> <th> Estimate </th> <th> Std. Error </th> <th> t value </th> <th> Pr(&gt;|t|) </th>  </tr>
