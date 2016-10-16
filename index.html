@@ -813,7 +813,7 @@ geom_point()
 
 <pre><code>df %&gt;%
   gather(., key = variables, value = value, -subj, -group) %&gt;%
-  ggplot(., aes(x = var, y = value, fill = group)) + 
+  ggplot(., aes(x = variables, y = value, fill = group)) + 
   geom_jitter() +
   geom_boxplot()
 </code></pre>
@@ -862,7 +862,7 @@ range of sophisticated analyses</li>
 
 <!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
 
-<!-- Sun Oct 16 15:19:49 2016 -->
+<!-- Sun Oct 16 18:35:09 2016 -->
 
 <table border=1>
 <tr> <th>  </th> <th> Estimate </th> <th> Std. Error </th> <th> t value </th> <th> Pr(&gt;|t|) </th>  </tr>

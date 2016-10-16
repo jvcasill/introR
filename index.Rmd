@@ -440,7 +440,7 @@ theme_bw(base_size = 18)
 ```
 df %>%
   gather(., key = variables, value = value, -subj, -group) %>%
-  ggplot(., aes(x = var, y = value, fill = group)) + 
+  ggplot(., aes(x = variables, y = value, fill = group)) + 
   geom_jitter() +
   geom_boxplot()
 ```

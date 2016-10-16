@@ -8,14 +8,14 @@
 rm(list = ls(all = TRUE))
 
 # Install required packages
-packages <- c("ggplot2", "dplyr", "tidyr", "lme4", "devtools", "lingStuff")
+packages <- c("ggplot2", "dplyr", "tidyr", "lme4", "devtools")
 if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
   install.packages(setdiff(packages, rownames(installed.packages())))  
 }
 
 # Load packages
 library(tidyr); library(dplyr); library(ggplot2); library(lme4); 
-library(devtools); library(lingStuff)
+library(devtools)
 
 
 #####################
@@ -161,7 +161,7 @@ geom_point()
 # Boxplot including all 4 variables (ht, wt, iq, group)
 df %>%
   gather(., key = variables, value = value, -subj, -group) %>%
-  ggplot(., aes(x = var, y = value, fill = group)) + 
+  ggplot(., aes(x = variables, y = value, fill = group)) + 
   geom_jitter() +
   geom_boxplot()
 
