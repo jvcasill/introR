@@ -614,7 +614,7 @@ df &lt;- data.frame(subj = x,
                  group = g, 
                  iq = y.iq, 
                  wt = sort(y.wt), 
-                 ht = sort(y.ht))
+                 ht = y.ht)
 </code></pre>
 
   </article>
@@ -741,13 +741,13 @@ df &lt;- data.frame(subj = x,
     <ul>
 <li>We can also use levels of the categorical factor to subset and perform
 and operation on the result</li>
-<li>Give me the average IQ of just the males</li>
+<li>Give me the average IQ of just the males </li>
 </ul>
 
-<pre><code class="r">mean(df[df$group == &#39;males&#39;, &#39;iq&#39;])
+<pre><code class="r">mean(df[df$group == &#39;males&#39;, &#39;iq&#39;]) 
 </code></pre>
 
-<pre><code>## [1] 123.2026
+<pre><code>## [1] 116.6018
 </code></pre>
 
   </article>
@@ -862,12 +862,12 @@ range of sophisticated analyses</li>
 
 <!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
 
-<!-- Sun Oct 16 18:35:09 2016 -->
+<!-- Sun Oct 16 18:49:11 2016 -->
 
 <table border=1>
 <tr> <th>  </th> <th> Estimate </th> <th> Std. Error </th> <th> t value </th> <th> Pr(&gt;|t|) </th>  </tr>
-  <tr> <td align="right"> (Intercept) </td> <td align="right"> 9.1925 </td> <td align="right"> 5.9111 </td> <td align="right"> 1.56 </td> <td align="right"> 0.1311 </td> </tr>
-  <tr> <td align="right"> ht </td> <td align="right"> 2.7159 </td> <td align="right"> 0.0934 </td> <td align="right"> 29.07 </td> <td align="right"> 0.0000 </td> </tr>
+  <tr> <td align="right"> (Intercept) </td> <td align="right"> 198.9551 </td> <td align="right"> 32.7173 </td> <td align="right"> 6.08 </td> <td align="right"> 0.0000 </td> </tr>
+  <tr> <td align="right"> ht </td> <td align="right"> -0.3620 </td> <td align="right"> 0.5172 </td> <td align="right"> -0.70 </td> <td align="right"> 0.4898 </td> </tr>
    </table>
 
   </article>

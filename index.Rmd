@@ -335,7 +335,7 @@ df <- data.frame(subj = x,
                  group = g, 
                  iq = y.iq, 
                  wt = sort(y.wt), 
-                 ht = sort(y.ht))
+                 ht = y.ht)
 ```
 
 ---
@@ -393,10 +393,10 @@ df[10:15, ]
 
 - We can also use levels of the categorical factor to subset and perform
 and operation on the result
-- Give me the average IQ of just the males
+- Give me the average IQ of just the males 
 
 ```{r bracket5}
-mean(df[df$group == 'males', 'iq'])
+mean(df[df$group == 'males', 'iq']) 
 ```
 
 --- .segue bg:grey

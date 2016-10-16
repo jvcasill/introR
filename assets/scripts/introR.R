@@ -110,7 +110,7 @@ head(USArrests)
 set.seed(1)
 x <- seq(1:30)
 g <- gl(n = 2, k = 15, length = 30, labels = c('females', 'males'))
-y.iq <- rnorm(n = 30, mean = 80, sd = 18)
+y.iq <- rnorm(n = 30, mean = 115, sd = 18)
 y.wt <- rnorm(n = 30, mean = 170, sd = 50)
 y.ht <- rnorm(n = 30, mean = 60, sd = 15)
 
@@ -120,7 +120,7 @@ df <- data.frame(subj = x,
                  group = g, 
                  iq = y.iq, 
                  wt = sort(y.wt), 
-                 ht = sort(y.ht))
+                 ht = y.ht)
 
 # Let's take a look at 'df'
 head(df, n = 10)
