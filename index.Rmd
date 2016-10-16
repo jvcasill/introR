@@ -24,7 +24,7 @@ assets      : {assets: ./assets}
 - Download [scripts](http://www.jvcasillas.com/introR/assets/scripts/introR.R)
 - Follow the presentation www.jvcasillas.com/introR/
 
-### Let's start
+### First things first...
 
 >- Open RStudio
 - Open the file ```introR.R``` in RStudio (File > Open file)
@@ -323,6 +323,7 @@ head(mtcars); head(USArrests)
 - Let's create a data frame in order to practice
 
 ```{r dataframe3}
+set.seed(1)
 x <- seq(1:30)
 g <- gl(n = 2, k = 15, length = 30, labels = c('females', 'males'))
 y.iq <- rnorm(n = 30, mean = 115, sd = 25)
@@ -432,18 +433,6 @@ theme_bw(base_size = 18)
 
 ---
 
-## ggplot2
-
-```{r plotHTWT2, echo=FALSE, fig.align='center', fig.height=6, fig.width=12, fig.retina=2}
-ggplot(df, aes(x = ht, y = wt, size = iq)) + 
-geom_point(alpha = 0.4, show.legend = FALSE) +
-geom_point(size = 1, colour = 'red', show.legend = FALSE) +
-geom_smooth(method = 'lm', show.legend = FALSE) + 
-theme_bw(base_size = 18) 
-```
-
----
-
 ## ggplot
 
 - Let's look at our dataframe ```df``` with the categorical factor ```group```
@@ -480,7 +469,7 @@ df %>%
 
 - There are many packages created for R that make it possible to do a wide 
 range of sophisticated analyses
-- linear models, mixed effects models, random forrests, bayesian models
+- linear models, hierarchical (mixed effects) models, random forests, Bayesian models, etc.
 - Most models use a function (i.e. ```lm()```) and the model is fit using a formula
 
 ```
@@ -498,6 +487,18 @@ df %>%
 
 ```
 
+---
+
+## Data analysis
+
+```{r plotHTWT2, echo=FALSE, fig.align='center', fig.height=6, fig.width=12, fig.retina=2}
+ggplot(df, aes(x = ht, y = wt, size = iq)) + 
+geom_point(alpha = 0.4, show.legend = FALSE) +
+geom_point(size = 1, colour = 'red', show.legend = FALSE) +
+geom_smooth(method = 'lm', show.legend = FALSE) + 
+theme_bw(base_size = 18) 
+```
+
 --- .segue bg:grey
 
 # Reproducible research
@@ -506,88 +507,130 @@ df %>%
 
 ## Reproducible research
 
+- Scientific research must be reproducible
+- Scientists are forgetful
+- We need a workflow that facilitates reproducibility *and* helps us remember what we did
 
+>- **Solution**: RMarkdown
 
+--- 
 
+## RMarkdown
 
+- Combines R code and markdown
+- Markdown is a plain-text formatting syntax designed to easily convert to HTML
+- "Two plus two = `r 2 + 2`."
 
+---
 
+## RMarkdown
 
+- Combines R code and markdown
+- Markdown is a plain-text formatting syntax designed to easily convert to HTML
 
-<!--
-----
+```{r, eval=FALSE}
+Two plus two = `r 2 + 2`.
+```
 
-# Basic overview
+---
 
-These are some of the topics covered in this introduction. Here I provide a 
-peak at some of the areas discussed.
+## RMarkdown
 
-## What is R?
+### A more complicated (and common) example
 
-- R is a language and environment for statistical computing and graphics
-- GNU project
+>- You come up with a brilliant idea, spend 1 year planning the design/getting funding/collecting data, spend a couple weeks analyzing the data, spend a few months preparing a manuscript, and 1 year waiting for reviews
+- You get reviews
+  - "You need to run more participants"
+  - "You need to change the analysis"
+  - "You need to quit your job"
+- Problems
+  - You go back to your project and don't remember anything
+  - Large margin for error
+  - Not reproducible
 
-## Why should you use it?
+---
 
-- Robust statistical and graphical techniques
-- Extensible
-- Platform independent
-- Free
+## RMarkdown
 
-## Object oriented programming
+### ```.Rmd``` files
 
-- the console
-  - gross
-- R as a calculator
-  - using a ferrari to get the mail
-- scripting languages
-  - comments
-  - objects: assigning variables
+- Keep your code and manuscript together
+- Outputs to .pdf, .doc, or .html (no more copy/paste from console to word)
 
-## Data structures
+---
 
-- vectors
-- matrices
-- dataframes
+<div>
+  <img width='100%' src="./assets/img/rmarkdownEx.png">
+</div>
 
-## Manipulating dataframes
+--- .segue bg:grey
 
-- subsetting
-- tidy data
-- creating new variables
+# Extras
 
-## Data visualization
-
-- grammar of graphics
-- aesthetics
-- geoms
-
-## Data analyses
-
-- Linear models
-- Hierarchical models
-
-## Reproducible research
-
-- Markdown
-- RMarkdown
-- RMarkdown ecosystem
+---
 
 ## Extras
 
-- Webpages
-- Shiny
 - Presentations
+- Shiny
+- Webpages
+
+---
+
+## Presentations
+
+- ```.Rmd``` can generate HTML presentations
+- This presentation is an example
+- ```slidify``` package ([link](http://slidify.org)) for more information
 
 
--->
+### Ex.
 
+```
+## Presentations
+
+- **.Rmd** can generate HTML presentations
+- This presentation is an example
+- **slidify** package ([link](http://slidify.org)) for more information
+
+### Ex.
+```
+
+---
+
+## Shiny
+
+<iframe data-src="https://jvcasill.shinyapps.io/shiny_bivariate_regression/" style="width: 900px; height: 600px seamless" id="shinyframe"></iframe>
+
+---
+
+## Webpages
+
+- **.Rmd** can generate HTML files
+- www.jvcasillas.com is an example
+- More info [here](http://rmarkdown.rstudio.com/rmarkdown_websites.html)
+
+--- .segue bg:grey
+
+# Summing up
+
+---
+
+## Conclusion
+
+- R is free, extensible, and powerful
+- The learning curve is rather steep, be patient
+- Once you understand subsetting the rest is easy (easier?)
 
 ---
 
 ## Thank you
 
+<div style="float:right">
+  <img width='300' src="./assets/img/clap.gif">
+</div>
+
 - Slides on [github](https://github.com/jvcasill/introR)
 - Scripts available [here](http://www.jvcasillas.com/introR/assets/scripts/introR.R)
-
+- Email me with questions, comments, suggestions  
 joseph.casillas@rutgers.edu

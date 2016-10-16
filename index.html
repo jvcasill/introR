@@ -71,7 +71,7 @@
 <li>Follow the presentation <a href="http://www.jvcasillas.com/introR/">www.jvcasillas.com/introR/</a></li>
 </ul>
 
-<h3>Let&#39;s start</h3>
+<h3>First things first...</h3>
 
 <ul class = "build incremental">
 <li>Open RStudio</li>
@@ -602,7 +602,8 @@ print(testDF)
 <li>Let&#39;s create a data frame in order to practice</li>
 </ul>
 
-<pre><code class="r">x &lt;- seq(1:30)
+<pre><code class="r">set.seed(1)
+x &lt;- seq(1:30)
 g &lt;- gl(n = 2, k = 15, length = 30, labels = c(&#39;females&#39;, &#39;males&#39;))
 y.iq &lt;- rnorm(n = 30, mean = 115, sd = 25)
 y.wt &lt;- rnorm(n = 30, mean = 170, sd = 50)
@@ -803,17 +804,6 @@ geom_point()
 
 <slide class="" id="slide-32" style="background:;">
   <hgroup>
-    <h2>ggplot2</h2>
-  </hgroup>
-  <article data-timings="">
-    <p><img src="assets/fig/plotHTWT2-1.png" title="plot of chunk plotHTWT2" alt="plot of chunk plotHTWT2" width="864" style="display: block; margin: auto;" /></p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-33" style="background:;">
-  <hgroup>
     <h2>ggplot</h2>
   </hgroup>
   <article data-timings="">
@@ -832,7 +822,7 @@ geom_point()
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-34" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>ggplot</h2>
   </hgroup>
@@ -843,7 +833,7 @@ geom_point()
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-35" style="background:grey;">
+<slide class="segue" id="slide-34" style="background:grey;">
   <hgroup>
     <h1>Data analysis</h1>
   </hgroup>
@@ -853,7 +843,7 @@ geom_point()
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-36" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>Data analysis</h2>
   </hgroup>
@@ -861,7 +851,7 @@ geom_point()
     <ul>
 <li>There are many packages created for R that make it possible to do a wide 
 range of sophisticated analyses</li>
-<li>linear models, mixed effects models, random forrests, bayesian models</li>
+<li>linear models, hierarchical (mixed effects) models, random forests, Bayesian models, etc.</li>
 <li>Most models use a function (i.e. <code>lm()</code>) and the model is fit using a formula</li>
 </ul>
 
@@ -872,103 +862,262 @@ range of sophisticated analyses</li>
 
 <!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
 
-<!-- Sat Oct 15 01:09:28 2016 -->
+<!-- Sun Oct 16 15:02:13 2016 -->
 
 <table border=1>
 <tr> <th>  </th> <th> Estimate </th> <th> Std. Error </th> <th> t value </th> <th> Pr(&gt;|t|) </th>  </tr>
-  <tr> <td align="right"> (Intercept) </td> <td align="right"> 42.2455 </td> <td align="right"> 8.5974 </td> <td align="right"> 4.91 </td> <td align="right"> 0.0000 </td> </tr>
-  <tr> <td align="right"> ht </td> <td align="right"> 2.5055 </td> <td align="right"> 0.1411 </td> <td align="right"> 17.75 </td> <td align="right"> 0.0000 </td> </tr>
+  <tr> <td align="right"> (Intercept) </td> <td align="right"> 9.1925 </td> <td align="right"> 5.9111 </td> <td align="right"> 1.56 </td> <td align="right"> 0.1311 </td> </tr>
+  <tr> <td align="right"> ht </td> <td align="right"> 2.7159 </td> <td align="right"> 0.0934 </td> <td align="right"> 29.07 </td> <td align="right"> 0.0000 </td> </tr>
    </table>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-37" style="background:;">
+<slide class="" id="slide-36" style="background:;">
+  <hgroup>
+    <h2>Data analysis</h2>
+  </hgroup>
   <article data-timings="">
-    <!--
-----
+    <p><img src="assets/fig/plotHTWT2-1.png" title="plot of chunk plotHTWT2" alt="plot of chunk plotHTWT2" width="864" style="display: block; margin: auto;" /></p>
 
-# Basic overview
+  </article>
+  <!-- Presenter Notes -->
+</slide>
 
-These are some of the topics covered in this introduction. Here I provide a 
-peak at some of the areas discussed.
-
-## What is R?
-
-- R is a language and environment for statistical computing and graphics
-- GNU project
-
-## Why should you use it?
-
-- Robust statistical and graphical techniques
-- Extensible
-- Platform independent
-- Free
-
-## Object oriented programming
-
-- the console
-  - gross
-- R as a calculator
-  - using a ferrari to get the mail
-- scripting languages
-  - comments
-  - objects: assigning variables
-
-## Data structures
-
-- vectors
-- matrices
-- dataframes
-
-## Manipulating dataframes
-
-- subsetting
-- tidy data
-- creating new variables
-
-## Data visualization
-
-- grammar of graphics
-- aesthetics
-- geoms
-
-## Data analyses
-
-- Linear models
-- Hierarchical models
-
-## Reproducible research
-
-- Markdown
-- RMarkdown
-- RMarkdown ecosystem
-
-## Extras
-
-- Webpages
-- Shiny
-- Presentations
-
-
--->
-
+<slide class="segue" id="slide-37" style="background:grey;">
+  <hgroup>
+    <h1>Reproducible research</h1>
+  </hgroup>
+  <article data-timings="">
+    
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-38" style="background:;">
   <hgroup>
-    <h2>Thank you</h2>
+    <h2>Reproducible research</h2>
   </hgroup>
   <article data-timings="">
     <ul>
-<li>Slides on <a href="https://github.com/jvcasill/introR">github</a></li>
-<li>Scripts available <a href="http://www.jvcasillas.com/introR/assets/scripts/introR.R">here</a></li>
+<li>Scientific research must be reproducible</li>
+<li>Scientists are forgetful</li>
+<li>We need a workflow that facilitates reproducibility <em>and</em> helps us remember what we did</li>
 </ul>
 
-<p><a href="mailto:joseph.casillas@rutgers.edu">joseph.casillas@rutgers.edu</a></p>
+<ul class = "build incremental">
+<li><strong>Solution</strong>: RMarkdown</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-39" style="background:;">
+  <hgroup>
+    <h2>RMarkdown</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Combines R code and markdown</li>
+<li>Markdown is a plain-text formatting syntax designed to easily convert to HTML</li>
+<li>&quot;Two plus two = 4.&quot;</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-40" style="background:;">
+  <hgroup>
+    <h2>RMarkdown</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Combines R code and markdown</li>
+<li>Markdown is a plain-text formatting syntax designed to easily convert to HTML</li>
+</ul>
+
+<pre><code class="r">Two plus two = `r 2 + 2`.
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-41" style="background:;">
+  <hgroup>
+    <h2>RMarkdown</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>A more complicated (and common) example</h3>
+
+<ul class = "build incremental">
+<li>You come up with a brilliant idea, spend 1 year planning the design/getting funding/collecting data, spend a couple weeks analyzing the data, spend a few months preparing a manuscript, and 1 year waiting for reviews</li>
+<li>You get reviews
+
+<ul>
+<li>&quot;You need to run more participants&quot;</li>
+<li>&quot;You need to change the analysis&quot;</li>
+<li>&quot;You need to quit your job&quot;</li>
+</ul></li>
+<li>Problems
+
+<ul>
+<li>You go back to your project and don&#39;t remember anything</li>
+<li>Large margin for error</li>
+<li>Not reproducible</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-42" style="background:;">
+  <hgroup>
+    <h2>RMarkdown</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3><code>.Rmd</code> files</h3>
+
+<ul>
+<li>Keep your code and manuscript together</li>
+<li>Outputs to .pdf, .doc, or .html (no more copy/paste from console to word)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-43" style="background:;">
+  <article data-timings="">
+    <div>
+  <img width='100%' src="./assets/img/rmarkdownEx.png">
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue" id="slide-44" style="background:grey;">
+  <hgroup>
+    <h1>Extras</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-45" style="background:;">
+  <hgroup>
+    <h2>Extras</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Presentations</li>
+<li>Shiny</li>
+<li>Webpages</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-46" style="background:;">
+  <hgroup>
+    <h2>Presentations</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>.Rmd</code> can generate HTML presentations</li>
+<li>This presentation is an example</li>
+<li><code>slidify</code> package (<a href="http://slidify.org">link</a>) for more information</li>
+</ul>
+
+<h3>Ex.</h3>
+
+<pre><code>## Presentations
+
+- **.Rmd** can generate HTML presentations
+- This presentation is an example
+- **slidify** package ([link](http://slidify.org)) for more information
+
+### Ex.
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-47" style="background:;">
+  <hgroup>
+    <h2>Shiny</h2>
+  </hgroup>
+  <article data-timings="">
+    <iframe data-src="https://jvcasill.shinyapps.io/shiny_bivariate_regression/" style="width: 900px; height: 600px seamless" id="shinyframe"></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-48" style="background:;">
+  <hgroup>
+    <h2>Webpages</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><strong>.Rmd</strong> can generate HTML files</li>
+<li><a href="http://www.jvcasillas.com">www.jvcasillas.com</a> is an example</li>
+<li>More info <a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html">here</a></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue" id="slide-49" style="background:grey;">
+  <hgroup>
+    <h1>Summing up</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-50" style="background:;">
+  <hgroup>
+    <h2>Conclusion</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>R is free, extensible, and powerful</li>
+<li>The learning curve is rather steep, be patient</li>
+<li>Once you understand subsetting the rest is easy (easier?)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-51" style="background:;">
+  <hgroup>
+    <h2>Thank you</h2>
+  </hgroup>
+  <article data-timings="">
+    <div style="float:right">
+  <img width='300' src="./assets/img/clap.gif">
+</div>
+
+<ul>
+<li>Slides on <a href="https://github.com/jvcasill/introR">github</a></li>
+<li>Scripts available <a href="http://www.jvcasillas.com/introR/assets/scripts/introR.R">here</a></li>
+<li>Email me with questions, comments, suggestions<br>
+<a href="mailto:joseph.casillas@rutgers.edu">joseph.casillas@rutgers.edu</a></li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
@@ -1166,7 +1315,7 @@ peak at some of the areas discussed.
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='ggplot2'>
+        data-slide=32 title='ggplot'>
          32
       </a>
     </li>
@@ -1178,7 +1327,7 @@ peak at some of the areas discussed.
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='ggplot'>
+        data-slide=34 title='Data analysis'>
          34
       </a>
     </li>
@@ -1196,14 +1345,92 @@ peak at some of the areas discussed.
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='NA'>
+        data-slide=37 title='Reproducible research'>
          37
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='Thank you'>
+        data-slide=38 title='Reproducible research'>
          38
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=39 title='RMarkdown'>
+         39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='RMarkdown'>
+         40
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=41 title='RMarkdown'>
+         41
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=42 title='RMarkdown'>
+         42
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=43 title='NA'>
+         43
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='Extras'>
+         44
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=45 title='Extras'>
+         45
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=46 title='Presentations'>
+         46
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=47 title='Shiny'>
+         47
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=48 title='Webpages'>
+         48
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=49 title='Summing up'>
+         49
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=50 title='Conclusion'>
+         50
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=51 title='Thank you'>
+         51
       </a>
     </li>
   </ul>

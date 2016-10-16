@@ -101,6 +101,7 @@ head(USArrests)
 ###########################
 
 # Create some data to put in a practice dataframe
+set.seed(1)
 x <- seq(1:30)
 g <- gl(n = 2, k = 15, length = 30, labels = c('females', 'males'))
 y.iq <- rnorm(n = 30, mean = 80, sd = 18)
@@ -120,11 +121,24 @@ df <- data.frame(subj = x,
 
 
 
+######################
+# Data visualization #
+######################
+
+
 df %>%
   gather(., key = variables, value = value, -subj, -group) %>%
   ggplot(., aes(x = var, y = value, fill = group)) + 
   geom_jitter() +
   geom_boxplot()
 
+
+
+
+#################
+# Data analysis #
+#################
+
+lm(formula = wt ~ ht, data = df) %>% summary
 
 
