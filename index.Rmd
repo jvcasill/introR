@@ -345,7 +345,7 @@ df <- data.frame(subj = x,
 - Let's look at 'df' using the ```head()``` function
 
 ```{r checkdf}
-head(df, n = 10)
+head(df, n = 10) 
 ```
 
 ---
