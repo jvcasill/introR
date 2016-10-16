@@ -110,7 +110,7 @@ head(USArrests)
 set.seed(1)
 x <- seq(1:30)
 g <- gl(n = 2, k = 15, length = 30, labels = c('females', 'males'))
-y.iq <- rnorm(n = 30, mean = 115, sd = 18)
+y.iq <- rnorm(n = 30, mean = 115, sd = 25)
 y.wt <- rnorm(n = 30, mean = 170, sd = 50)
 y.ht <- rnorm(n = 30, mean = 60, sd = 15)
 
