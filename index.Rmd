@@ -335,7 +335,7 @@ df <- data.frame(subj = x,
                  group = g, 
                  iq = y.iq, 
                  wt = sort(y.wt), 
-                 ht = y.ht)
+                 ht = sort(y.ht)) 
 ```
 
 ---
@@ -355,7 +355,7 @@ head(df, n = 10)
 - What kind of variables does the dataframe have?
 
 ```{r strDF}
-str(df)
+str(df) 
 ```
 
 ---
@@ -365,11 +365,11 @@ str(df)
 - How do we look at subsets of the dataframe? **Bracket operators** 
 
 ```{r bracket1}
-df[1, ]
+df[1, ] 
 ```
 
 ```{r bracket2}
-df[, 1]
+df[, 1] 
 ```
 
 >- Show me the 10th row of the 3rd column
@@ -380,11 +380,11 @@ df[, 1]
 ## Manipulating dataframes
 
 ```{r bracket3}
-df[10, 3]
+df[10, 3] 
 ```
 
 ```{r bracket4}
-df[10:15, ]
+df[10:15, ] 
 ```
 
 ---
@@ -396,7 +396,7 @@ and operation on the result
 - Give me the average IQ of just the males 
 
 ```{r bracket5}
-mean(df[df$group == 'males', 'iq']) 
+mean(df[df$group == 'males', 'iq'])  
 ```
 
 --- .segue bg:grey
@@ -427,8 +427,8 @@ geom_point()
 
 ```{r plotHTWT1, echo=FALSE, fig.align='center', fig.height=6, fig.width=12, fig.retina=2}
 ggplot(df, aes(x = ht, y = wt)) + 
-geom_point() +
-theme_bw(base_size = 18)
+geom_point() + 
+theme_bw(base_size = 18) 
 ```
 
 ---
@@ -441,7 +441,7 @@ theme_bw(base_size = 18)
 df %>%
   gather(., key = variables, value = value, -subj, -group) %>%
   ggplot(., aes(x = variables, y = value, fill = group)) + 
-  geom_jitter() +
+  geom_jitter() + 
   geom_boxplot()
 ```
 
@@ -454,9 +454,9 @@ df %>%
   gather(., key = variables, value = value, -subj, -group) %>%
   ggplot(., aes(x = variables, y = value, fill = group)) + 
   geom_jitter() +
-  geom_boxplot() +
+  geom_boxplot() + 
   scale_fill_brewer(palette = 'Set1') + 
-  theme_bw(base_size = 18)
+  theme_bw(base_size = 18) 
 ```
 
 --- .segue bg:grey
@@ -482,9 +482,8 @@ lm(formula = wt ~ ht, data = df)
 library(xtable)
 df %>%
 	lm(wt ~ ht, data = .) %>%
-	xtable(.) %>%
+	xtable(.) %>% 
 	print(., type = "html")
-
 ```
 
 ---

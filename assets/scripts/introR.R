@@ -120,7 +120,7 @@ df <- data.frame(subj = x,
                  group = g, 
                  iq = y.iq, 
                  wt = sort(y.wt), 
-                 ht = y.ht)
+                 ht = sort(y.ht))
 
 # Let's take a look at 'df'
 head(df, n = 10)
