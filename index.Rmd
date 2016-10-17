@@ -445,6 +445,8 @@ geom_point()
 - Now try combining the points and the line
 - Add a smoother to the plot (```geom_smooth()```)
 
+---
+
 ## ggplot2
 
 ```{r plotHTWT1, echo=FALSE, fig.align='center', fig.height=6, fig.width=12, fig.retina=2}
