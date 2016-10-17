@@ -750,11 +750,46 @@ and operation on the result</li>
 <pre><code>## [1] 116.6018
 </code></pre>
 
+<p></p>
+
+<ul class = "build incremental">
+<li><strong>What is the mean height of the females?</strong></li>
+<li><strong>What is the mean weight of all participants?</strong></li>
+<li><strong>What is the standard deviation (<code>sd()</code>) of the weight of all participants?</strong></li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-29" style="background:grey;">
+<slide class="" id="slide-29" style="background:;">
+  <hgroup>
+    <h2>Manipulating dataframes</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">mean(df[df$group == &#39;females&#39;, &#39;ht&#39;])
+</code></pre>
+
+<pre><code>## [1] 51.05389
+</code></pre>
+
+<pre><code class="r">mean(df[, &#39;wt&#39;])
+</code></pre>
+
+<pre><code>## [1] 176.6387
+</code></pre>
+
+<pre><code class="r">sd(df[, &#39;wt&#39;])
+</code></pre>
+
+<pre><code>## [1] 39.76608
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue" id="slide-30" style="background:grey;">
   <hgroup>
     <h1>Data visualization</h1>
   </hgroup>
@@ -764,7 +799,7 @@ and operation on the result</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>ggplot2</h2>
   </hgroup>
@@ -791,18 +826,26 @@ geom_point()
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-31" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>ggplot2</h2>
   </hgroup>
   <article data-timings="">
-    <p><img src="assets/fig/plotHTWT1-1.png" title="plot of chunk plotHTWT1" alt="plot of chunk plotHTWT1" width="864" style="display: block; margin: auto;" /></p>
+    <ul class = "build incremental">
+<li>Try plotting the same data with a line instead (hint: use <code>geom_line()</code>)</li>
+<li>Now try combining the points and the line</li>
+<li>Add a smoother to the plot (<code>geom_smooth()</code>)</li>
+</ul>
+
+<h2>ggplot2</h2>
+
+<p><img src="assets/fig/plotHTWT1-1.png" title="plot of chunk plotHTWT1" alt="plot of chunk plotHTWT1" width="864" style="display: block; margin: auto;" /></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>ggplot</h2>
   </hgroup>
@@ -822,7 +865,7 @@ geom_point()
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <hgroup>
     <h2>ggplot</h2>
   </hgroup>
@@ -833,7 +876,7 @@ geom_point()
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-34" style="background:grey;">
+<slide class="segue" id="slide-35" style="background:grey;">
   <hgroup>
     <h1>Data analysis</h1>
   </hgroup>
@@ -843,7 +886,7 @@ geom_point()
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-35" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <hgroup>
     <h2>Data analysis</h2>
   </hgroup>
@@ -862,7 +905,7 @@ range of sophisticated analyses</li>
 
 <!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
 
-<!-- Sun Oct 16 21:12:40 2016 -->
+<!-- Mon Oct 17 08:45:21 2016 -->
 
 <table border=1>
 <tr> <th>  </th> <th> Estimate </th> <th> Std. Error </th> <th> t value </th> <th> Pr(&gt;|t|) </th>  </tr>
@@ -874,7 +917,7 @@ range of sophisticated analyses</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-36" style="background:;">
+<slide class="" id="slide-37" style="background:;">
   <hgroup>
     <h2>Data analysis</h2>
   </hgroup>
@@ -885,7 +928,7 @@ range of sophisticated analyses</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-37" style="background:grey;">
+<slide class="segue" id="slide-38" style="background:grey;">
   <hgroup>
     <h1>Reproducible research</h1>
   </hgroup>
@@ -895,7 +938,7 @@ range of sophisticated analyses</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-38" style="background:;">
+<slide class="" id="slide-39" style="background:;">
   <hgroup>
     <h2>Reproducible research</h2>
   </hgroup>
@@ -914,7 +957,7 @@ range of sophisticated analyses</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-39" style="background:;">
+<slide class="" id="slide-40" style="background:;">
   <hgroup>
     <h2>RMarkdown</h2>
   </hgroup>
@@ -931,7 +974,7 @@ range of sophisticated analyses</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-40" style="background:;">
+<slide class="" id="slide-41" style="background:;">
   <hgroup>
     <h2>RMarkdown</h2>
   </hgroup>
@@ -950,7 +993,7 @@ range of sophisticated analyses</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-41" style="background:;">
+<slide class="" id="slide-42" style="background:;">
   <hgroup>
     <h2>RMarkdown</h2>
   </hgroup>
@@ -979,7 +1022,7 @@ range of sophisticated analyses</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-42" style="background:;">
+<slide class="" id="slide-43" style="background:;">
   <hgroup>
     <h2>RMarkdown</h2>
   </hgroup>
@@ -997,7 +1040,7 @@ participants&#39;)</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-43" style="background:;">
+<slide class="" id="slide-44" style="background:;">
   <article data-timings="">
     <div>
   <img width='100%' src="./assets/img/rmarkdownEx.png">
@@ -1007,7 +1050,7 @@ participants&#39;)</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-44" style="background:grey;">
+<slide class="segue" id="slide-45" style="background:grey;">
   <hgroup>
     <h1>Extras</h1>
   </hgroup>
@@ -1017,7 +1060,7 @@ participants&#39;)</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-45" style="background:;">
+<slide class="" id="slide-46" style="background:;">
   <hgroup>
     <h2>Extras</h2>
   </hgroup>
@@ -1032,7 +1075,7 @@ participants&#39;)</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-46" style="background:;">
+<slide class="" id="slide-47" style="background:;">
   <hgroup>
     <h2>Presentations</h2>
   </hgroup>
@@ -1058,7 +1101,7 @@ participants&#39;)</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-47" style="background:;">
+<slide class="" id="slide-48" style="background:;">
   <hgroup>
     <h2>Shiny</h2>
   </hgroup>
@@ -1069,7 +1112,7 @@ participants&#39;)</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-48" style="background:;">
+<slide class="" id="slide-49" style="background:;">
   <hgroup>
     <h2>Webpages</h2>
   </hgroup>
@@ -1084,7 +1127,7 @@ participants&#39;)</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-49" style="background:grey;">
+<slide class="segue" id="slide-50" style="background:grey;">
   <hgroup>
     <h1>Summing up</h1>
   </hgroup>
@@ -1094,7 +1137,7 @@ participants&#39;)</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-50" style="background:;">
+<slide class="" id="slide-51" style="background:;">
   <hgroup>
     <h2>Conclusion</h2>
   </hgroup>
@@ -1109,7 +1152,7 @@ participants&#39;)</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-51" style="background:;">
+<slide class="" id="slide-52" style="background:;">
   <hgroup>
     <h2>Thank you</h2>
   </hgroup>
@@ -1303,13 +1346,13 @@ participants&#39;)</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=29 title='Data visualization'>
+        data-slide=29 title='Manipulating dataframes'>
          29
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='ggplot2'>
+        data-slide=30 title='Data visualization'>
          30
       </a>
     </li>
@@ -1321,7 +1364,7 @@ participants&#39;)</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='ggplot'>
+        data-slide=32 title='ggplot2'>
          32
       </a>
     </li>
@@ -1333,7 +1376,7 @@ participants&#39;)</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='Data analysis'>
+        data-slide=34 title='ggplot'>
          34
       </a>
     </li>
@@ -1351,7 +1394,7 @@ participants&#39;)</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='Reproducible research'>
+        data-slide=37 title='Data analysis'>
          37
       </a>
     </li>
@@ -1363,7 +1406,7 @@ participants&#39;)</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=39 title='RMarkdown'>
+        data-slide=39 title='Reproducible research'>
          39
       </a>
     </li>
@@ -1387,13 +1430,13 @@ participants&#39;)</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=43 title='NA'>
+        data-slide=43 title='RMarkdown'>
          43
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=44 title='Extras'>
+        data-slide=44 title='NA'>
          44
       </a>
     </li>
@@ -1405,38 +1448,44 @@ participants&#39;)</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=46 title='Presentations'>
+        data-slide=46 title='Extras'>
          46
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=47 title='Shiny'>
+        data-slide=47 title='Presentations'>
          47
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=48 title='Webpages'>
+        data-slide=48 title='Shiny'>
          48
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=49 title='Summing up'>
+        data-slide=49 title='Webpages'>
          49
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=50 title='Conclusion'>
+        data-slide=50 title='Summing up'>
          50
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=51 title='Thank you'>
+        data-slide=51 title='Conclusion'>
          51
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=52 title='Thank you'>
+         52
       </a>
     </li>
   </ul>

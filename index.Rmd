@@ -399,6 +399,22 @@ and operation on the result
 mean(df[df$group == 'males', 'iq']) 
 ```
 
+<p></p>
+
+>- **What is the mean height of the females?**
+- **What is the mean weight of all participants?**
+- **What is the standard deviation (```sd()```) of the weight of all participants?**
+
+---
+
+## Manipulating dataframes
+
+```{r meanweight}
+mean(df[df$group == 'females', 'ht'])
+mean(df[, 'wt'])
+sd(df[, 'wt'])
+```
+
 --- .segue bg:grey
 
 # Data visualization
@@ -422,6 +438,12 @@ geom_point()
 ```
 
 ---
+
+## ggplot2
+
+>- Try plotting the same data with a line instead (hint: use ```geom_line()```)
+- Now try combining the points and the line
+- Add a smoother to the plot (```geom_smooth()```)
 
 ## ggplot2
 
