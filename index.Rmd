@@ -97,6 +97,17 @@ assets      : {assets: ./assets}
   <img src="./assets/img/rstudio1.png">
 </div>
 
+---
+
+## Why should you use R?
+
+- It's free
+- It's open source
+- Not just stats, it's a programming language
+- It's extensible 
+- The environment favors reproducible research and literate programming 
+- Innovative extensions (RMarkdown, slidify, shiny, HTML widgets)
+
 --- .segue bg:grey
 
 # Object oriented programming
