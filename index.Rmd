@@ -441,19 +441,19 @@ geom_point()
 
 ## ggplot2
 
->- Try plotting the same data with a line instead (hint: use ```geom_line()```)
-- Now try combining the points and the line
-- Add a smoother to the plot (```geom_smooth()```)
-
----
-
-## ggplot2
-
 ```{r plotHTWT1, echo=FALSE, fig.align='center', fig.height=6, fig.width=12, fig.retina=2}
 ggplot(df, aes(x = ht, y = wt)) + 
 geom_point() + 
 theme_bw(base_size = 18) 
 ```
+
+---
+
+## ggplot2
+
+>- Try plotting the same data with a line instead (hint: use ```geom_line()```)
+- Now try combining the points and the line
+- Add a smoother to the plot (```geom_smooth()```)
 
 ---
 
