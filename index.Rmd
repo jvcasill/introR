@@ -19,10 +19,10 @@ assets      : {assets: ./assets}
 
 ### RU ready?
 
+- Follow the presentation www.jvcasillas.com/introR/
 - Download [R](https://cran.r-project.org)
 - Download [RStudio](https://www.rstudio.com/products/rstudio/download/)
 - Download [scripts](http://www.jvcasillas.com/introR/assets/scripts/introR.R)
-- Follow the presentation www.jvcasillas.com/introR/
 
 ### First things first...
 
@@ -44,14 +44,14 @@ assets      : {assets: ./assets}
 8  rm(list = ls(all = TRUE))
 9
 10 # Install required packages
-11 packages <- c("ggplot2", "dplyr", "tidyr", "lme4", "devtools", "lingStuff")
+11 packages <- c("ggplot2", "dplyr", "tidyr", "lme4", "devtools")
 12 if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
 13    install.packages(setdiff(packages, rownames(installed.packages())))  
 14 }
 15
 16 # Load packages
 17 library(tidyr); library(dplyr); library(ggplot2); library(lme4); 
-18 library(devtools); library(lingStuff)
+18 library(devtools)
 19
 ```
 

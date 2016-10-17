@@ -65,10 +65,10 @@
     <h3>RU ready?</h3>
 
 <ul>
+<li>Follow the presentation <a href="http://www.jvcasillas.com/introR/">www.jvcasillas.com/introR/</a></li>
 <li>Download <a href="https://cran.r-project.org">R</a></li>
 <li>Download <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a></li>
 <li>Download <a href="http://www.jvcasillas.com/introR/assets/scripts/introR.R">scripts</a></li>
-<li>Follow the presentation <a href="http://www.jvcasillas.com/introR/">www.jvcasillas.com/introR/</a></li>
 </ul>
 
 <h3>First things first...</h3>
@@ -96,14 +96,14 @@
 8  rm(list = ls(all = TRUE))
 9
 10 # Install required packages
-11 packages &lt;- c(&quot;ggplot2&quot;, &quot;dplyr&quot;, &quot;tidyr&quot;, &quot;lme4&quot;, &quot;devtools&quot;, &quot;lingStuff&quot;)
+11 packages &lt;- c(&quot;ggplot2&quot;, &quot;dplyr&quot;, &quot;tidyr&quot;, &quot;lme4&quot;, &quot;devtools&quot;)
 12 if (length(setdiff(packages, rownames(installed.packages()))) &gt; 0) {
 13    install.packages(setdiff(packages, rownames(installed.packages())))  
 14 }
 15
 16 # Load packages
 17 library(tidyr); library(dplyr); library(ggplot2); library(lme4); 
-18 library(devtools); library(lingStuff)
+18 library(devtools)
 19
 </code></pre>
 
@@ -912,7 +912,7 @@ range of sophisticated analyses</li>
 
 <!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
 
-<!-- Mon Oct 17 08:50:31 2016 -->
+<!-- Mon Oct 17 10:48:39 2016 -->
 
 <table border=1>
 <tr> <th>  </th> <th> Estimate </th> <th> Std. Error </th> <th> t value </th> <th> Pr(&gt;|t|) </th>  </tr>
