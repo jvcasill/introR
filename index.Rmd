@@ -485,6 +485,7 @@ df %>%
 ## ggplot 
 
 ```{r dfPlot, echo=FALSE, fig.align='center', fig.height=6, fig.width=12, fig.retina=2}
+library(tidyr)
 df %>%
   gather(., key = variables, value = value, -subj, -group) %>%
   ggplot(., aes(x = variables, y = value, fill = group)) + 
