@@ -1,63 +1,204 @@
-
-
+###############################################################################
+# Intro to R                                                                  #
+# Joseph V. Casillas, PhD                                                     #
+# 10/02/2016                                                                  #
+###############################################################################
 
 # clean working directory
 rm(list = ls(all = TRUE))
 
-library(tidyr); library(dplyr); library(ggplot2)
+# Install required packages
+packages <- c("ggplot2", "dplyr", "tidyr", "lme4", "devtools")
+if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
+  install.packages(setdiff(packages, rownames(installed.packages())))  
+}
 
-n <- 100
-height <- round(rnorm(n = n, mean = 65, sd = 7), 1)
-weight <- height + n * 1.05
-s <- -3 + 2 * height + rnorm(n)
-catVar <- rbinom(n, size = 1, prob = exp(s) / (1 + exp(s)))
-df <- data.frame(height, weight, catVar)
-
-50 5 1 0.075
-y = beta0 + x * beta1 + rnorm(n, sd = sigma)
-
-glimpse(df)
-
-df %>%
-  ggplot(., aes(x = height, y = catVar)) + 
-  ylim(0, 1) + 
-  geom_smooth(method = "glm", method.args=list(family="binomial"), se = T)
-
-df %>%
-  ggplot(., aes(x = height, y = weight)) + 
-  geom_point()
-
-df %>%
-  lm(height ~ conVar2, data = .) %>%
-  summary
+# Load packages
+library(tidyr); library(dplyr); library(ggplot2); library(lme4); 
+library(devtools)
 
 
+#####################
+# R as a calculator #
+#####################
+
+2 + 2
+
+4^2
+
+(12 * 15) / 2
 
 
+#############################
+# Always comment your code! #
+#############################
+
+# This is a comment
+2 + 2
+
+
+##################
+# R uses objects #
+##################
+
+# Store the value '2' to the object 'x'
+x <- 2
+print(x)
+
+# Perform an operation on 'x'
+x + 4
+
+
+
+
+
+
+
+###################
+# Data structures #
+###################
+
+# Vectors #
+
+# We will create 3 vectos: x, y, and z
+x <- c(1, 2, 3)
+y <- c(4, 5, 6)
+z <- c('a', 'b', 'c')
+
+# We can use the print function to see the vectors in the console
+print(x); print(y); print(z)
+
+# We can perform operations on vectors
+# add one to each value in the vector
+x + 1 
+
+# add the values in x to the values in y 
+x + y 
+
+# add the values of y to the values of z (this gives an error)
+y + z
+
+
+# Matrices #
+
+matrix(1:10, nrow = 5, ncol = 2)
+
+
+
+# Dataframes #
+
+# createa a dataframe using the vectors 'x', 'y', and 'z'
+testDF <- data.frame(x, y, z)
+print(testDF)
+
+# Let's look at some more interesting dataframes
+# The head() function shows the 1st six rows of a dataframe
+head(mtcars)
+head(USArrests)
+
+
+
+
+
+
+
+###########################
+# Manipulating dataframes #
+###########################
+
+# Create some data to put in a practice dataframe
+set.seed(1)
 x <- seq(1:30)
 g <- gl(n = 2, k = 15, length = 30, labels = c('females', 'males'))
-y.iq <- rnorm(n = 30, mean = 80, sd = 18)
+y.iq <- rnorm(n = 30, mean = 115, sd = 25)
 y.wt <- rnorm(n = 30, mean = 170, sd = 50)
 y.ht <- rnorm(n = 30, mean = 60, sd = 15)
 
+# Store data in dataframe called 'df'
+# 'df' has a column for subjects, group, IQ, weight, and height
 df <- data.frame(subj = x, 
                  group = g, 
-                 y.iq = y.iq, 
-                 y.wt = sort(y.wt), 
-                 y.ht = y.ht)
+                 iq = y.iq, 
+                 wt = sort(y.wt), 
+                 ht = sort(y.ht))
 
-library(tidyr); library(dplyr); library(ggplot2)
+# Let's take a look at 'df'
+head(df, n = 10)
 
+# Let's see the structure (str) of 'df'
+str(df)
+
+# Subsets: row 1 (first participant), all columns
+df[1, ]
+
+# Subsets: all rows, first column (subj identification column)
+df[, 1]
+
+# How can we see the 10th row of the 3rd column?
+
+# How can we rows 10 through 15, all columns?
+
+# Let's create a subset and perform an operation on it 
+# We will calculate the mean IQ of just the male participants
+mean(df[df$group == 'males', 'iq'])
+
+# This is equivilant to...
+mean(df[16:30, 3])
+
+
+
+
+
+######################
+# Data visualization #
+######################
+
+
+# Basic example 
+ggplot(data = df, aes(x = ht, y = wt)) + 
+geom_point()
+
+# Boxplot including all 4 variables (ht, wt, iq, group)
 df %>%
-  gather(., key = var, value = value, -subj, -group) %>%
-  ggplot(., aes(x = var, y = value, fill = group)) + 
+  gather(., key = variables, value = value, -subj, -group) %>%
+  ggplot(., aes(x = variables, y = value, fill = group)) + 
   geom_jitter() +
   geom_boxplot()
 
-df %>%
-  ggplot(., aes(x = y.ht, y = y.wt)) + 
-  geom_point(aes(colour = y.iq, shape = group)) +
-  geom_smooth(method = 'lm', alpha = 0.2, color = 'red', 
-              formula = y ~ x, fullrange = T) + 
-  ylim(0, 230) + xlim(0, 90) +
-  theme_bw()
+
+
+
+
+
+#################
+# Data analysis #
+#################
+
+# Run a bivariate linear regression
+lm(formula = wt ~ ht, data = df) %>% summary
+
+# Run an 1-way between subjects anova 
+# (wt as a function of group)
+aov(formula = wt ~ group, data = df) %>% summary 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

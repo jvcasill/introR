@@ -1,47 +1,20 @@
+Introduction to programing in R
+===============================
 
+# Outline
 
-## Object oriented programming
+- What is R?
+- Why Should I use it?
+- Object oriented programming
+- Data structures
+- Manipulating dataframes
+- Loading data
+- Data visualization
+- Data analyses
+- Reproducible research
+- Extras
 
-- the console
-  - gross
-- R as a calculator
-  - using a ferrari to get the mail
-- scripting languages
-  - comments
-  - objects: assigning variables
+----
 
-## Data structures
-
-- vectors
-- matrices
-- dataframes
-
-## Manipulating dataframes
-
-- subsetting
-- tidy data
-- creating new variables
-
-## Data visualization
-
-- grammar of graphics
-- aesthetics
-- geoms
-
-## Data analyses
-
-- Linear models
-- Hierarchical models
-
-## Reproducible research
-
-- Markdown
-- RMarkdown
-- RMarkdown ecosystem
-
-## Extras
-
-- Creating webpages
-- Creating presentations
-
-
+Access the slides [here](http://www.jvcasillas.com/introR/)  
+Download scripts [here](http://www.jvcasillas.com/introR/assets/scripts/introR.R)
