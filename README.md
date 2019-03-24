@@ -1,20 +1,12 @@
-Introduction to programing in R
-===============================
+Introduction to R
+=================
 
-# Outline
-
-- What is R?
-- Why Should I use it?
-- Object oriented programming
-- Data structures
-- Manipulating dataframes
-- Loading data
-- Data visualization
-- Data analyses
-- Reproducible research
-- Extras
+- ggplot2
+- Tidy data
+- Data manipulation
+- Data presentation
+- NHST
 
 ----
 
-Access the slides [here](http://www.jvcasillas.com/introR/)  
-Download scripts [here](http://www.jvcasillas.com/introR/assets/scripts/introR.R)
+RStudio cloud access: https://rstudio.cloud/spaces/13371/join?access_code=kxYHQ%2BoI0N4TlfsstEO%2Fn1PsFDyMlNX736ZGuqqA
