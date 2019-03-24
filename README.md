@@ -1,6 +1,7 @@
 Introduction to R
 =================
 
+- Coding standards
 - ggplot2
 - Tidy data
 - Data manipulation
