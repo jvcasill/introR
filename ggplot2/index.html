@@ -14,9 +14,9 @@
 class: center, middle, inverse, title-slide
 
 # Intro to R
-## Welcome to the tidyverse I: Standards and plots
+## Data visualization using ggplot2
 ### Joseph V. Casillas <br> Cristina Lozano-Argüelles
-### Rutgers University</br>Spring 2019</br>Last update: 2019-03-23
+### Rutgers University</br>Spring 2019</br>Last update: 2019-03-24
 
 ---
 
@@ -26,224 +26,11 @@ class: center, middle, inverse, title-slide
 
 
 
-background-color: black
-background-image: url(https://raw.githubusercontent.com/jvcasillas/media/master/rstats/memes/os_heartbreak.png)
-background-size: contain
-
----
 background-color: black
 background-image: url(https://raw.githubusercontent.com/jvcasillas/media/master/general/memes/sucking1.png)
 background-size: contain
 
 ---
-background-color: black
-background-image: url(https://raw.githubusercontent.com/jvcasillas/media/master/general/memes/draw_owl.png)
-background-size: contain
-
----
-class: title-slide-section-grey, center, middle
-
-# Coding standards
-
-(and some other important stuff)
-
----
-
-# Coding standards
-
-### Comments
-
---
-
-- You ~~should~~ have to comment your code
-
---
-
-- While you are doing an analysis you feel like you know everything about your 
-data. The logic of every step you take makes sense and is fresh in your mind.
-
---
-
-- 6 months from now you will not remember any of that
-
---
-
-- It is imperative that you obsessively comment your code
-
---
-
-- Think of it as leaving little post-it notes in your script that help you 
-remember your train of thought
-
---
-
-- It provides a way to time stamp your progress
-
---
-
-- It allows you to logically divide a script into sections
-
---
-
-- It allows others to understand your code
-
----
-
-# Coding standards
-
-### Comments
-
-- In R, comments are any characters that follow **\#** on the same line
-
---
-
-.pull-left[
-
-
-```r
-# This is a comment
-
-# You can put comments above your code
-x &lt;- 2 # or next to it
-
-x^2 # x squared
-```
-
-```
-## [1] 4
-```
-
-]
-
---
-
-.pull-right[
-
-
-```r
-# Fit a model for mpg as a function of drat
-mod &lt;- lm(mpg ~ drat, data = mtcars)
-
-# Plot it
-ggplot(mtcars, aes(x = drat, y = mpg)) + 
-    geom_point() + 
-    geom_abline(intercept = coef(mod)[1], slope = coef(mod)[2])
-```
-
-&lt;img src="index_files/figure-html/comments-example-2-1.png" width="504" /&gt;
-]
-
----
-class: title-slide-section-grey, center, middle
-
-&lt;blockquote align='center' class="twitter-tweet" data-lang="de"&gt;
-&lt;a href="https://twitter.com/juliafstrand/status/1097598546931527684"&gt;&lt;/a&gt;
-&lt;/blockquote&gt;
-
----
-class: title-slide-section-grey
-
-# Examples
-
----
-background-color: black
-background-image: url(./assets/img/comments01.png)
-background-size: contain
-
----
-background-color: black
-background-image: url(./assets/img/comments02.png)
-background-size: contain
-
----
-background-color: black
-background-image: url(./assets/img/comments03.png)
-background-size: contain
-
----
-background-color: black
-background-image: url(./assets/img/comments04.png)
-background-size: contain
-
----
-background-color: black
-background-image: url(./assets/img/comments05.png)
-background-size: contain
-
----
-class: title-slide-section-grey, middle, center
-
-# Variable naming conventions
-
----
-
-# Coding standards
-
-### Variable naming conventions
-
-.pull-left[
-
-- Similar to project/file/folder naming conventions
-
-- Use meaningful names
-
-- Programming language-specific prescriptivism
-
-- Avoid caps and periods
-
-- Use \_ for separating meaningful words
-
-]
-
---
-
-.pull-right[
-
-.large[Ex. from R4DS]
-
-```
-i_use_snake_case
-otherPeopleUseCamelCase
-some.people.use.periods
-And_aFew.People_RENOUNCEconvention
-```
-
-.small[
-**My suggestion**: Use `snake_case` for everything (i.e., naming objects in R, columns in excel, etc.). You'll see why later...
-]
-
-]
-
-
----
-
-# Coding standards
-
-### Space
-
-- Unlike when naming projects, folders, files, and variables, it is advisable to leave white space in some places in your scripts to make them more readable
-
-- In general it is good practice to leave a single space before and after arguments in functions and when assigning objects
-  - .red[Meh]: `x&lt;-2`
-  - .blue[Better]: `x &lt;- 2`
-
---
-  - .red[Meh]: `lm(mpg~drat,data=mtcars)`
-  - .blue[Better]: `lm(mpg ~ drat, data = mtcars)`
-
---
-
-- This is also true for markdown syntax
-  - .red[Meh]: `#Introduction`
-  - .blue[Better]: `# Introduction`
-
----
-
-
-
-
-
-
 background-color: black
 background-image: url(https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tidyverse.png), url(https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png)
 background-size: 500px, 250px
@@ -797,7 +584,7 @@ background-position: 9% 15%, 89% 15%
 # Getting help
 
 ## If you have problems using ggplot2
-## ask for help in the slack channel
+## you can look for help on stack overflow
 
 ### You can find some very basic tutorials related to 
 ### plotting in R [here][here]
