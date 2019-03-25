@@ -1,0 +1,502 @@
+---
+title   : "Intro to R"
+subtitle: "Null hypothesis significance testing"
+author  : "Joseph V. Casillas, PhD"
+date    : "Rutgers University</br>Spring 2019</br>Last update: `r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: assets
+    css: ["hygge", "rutgers", "rutgers-fonts"]
+    nature:
+      beforeInit: ["https://www.jvcasillas.com/ru_xaringan/js/ru_xaringan.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+    includes:
+      in_header: "./assets/partials/header.html"
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r eval=FALSE, echo=FALSE}
+xaringan::inf_mr()
+```
+
+```{r, 'load-packages', include=F}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+```
+
+class: title-slide-section-grey, middle, center
+
+# .white[Do we know what we think we know?]
+
+---
+background-image: url(../assets/img/pensar2.png)
+background-size: 400px
+background-position: 90% 50%
+
+# A psychological paradox
+
+### We know 2 things
+
+#### The majority of published studies...
+
+1. ...include findings that are "statistically significant"
+
+--
+
+2. ...are underpowered due to low sample size<sup>1</sup>
+
+.footnote[<sup>1</sup>Chase & Chase 1976, Cohen 1962, Sedlmeier & Gigerenzer 1989]
+
+--
+
+.pull-left[
+.center[
+
+#### **What does this imply**? 
+
+#### **What is "significance"**?
+
+#### **What is power**?
+
+]
+]
+
+---
+background-image: url(https://i.imgflip.com/2sdkd6.jpg)
+background-size: contain
+background-position: 50% 50%
+background-color: black
+
+---
+background-image: url(https://static-19.sinclairstoryline.com/resources/media/a079367c-a58f-4130-b01b-5d5d320655d2-large16x9_genericcourtroomgavel.JPG?1531677910817)
+background-size: contain
+
+# .white[NHST]
+
+--
+
+.pull-left[
+.Large[.white[In a trial, the </br>
+.big[.yellow[.bold[null hypothesis]] (.yellow[H<sub>0</sub>])] </br> 
+is innocence.]]]
+
+--
+
+.footnote[
+.Large[
+.white[
+The objective is to see if the evidence .big[(**the data**)] contradicts this 
+hypothesis, supporting an .big[.bold[.green[alternative hypothesis]] (.green[H<sub>1</sub>])], guilt. 
+]
+]
+]
+
+---
+background-image: url(https://thehill.com/sites/default/files/styles/thumb_small_article/public/ginsburgruth_041017gn_lead.jpg?itok=TFxW052n)
+background-size: contain
+
+# .white[NHST]
+
+--
+
+.pull-left[
+.footnote[
+.big[
+.white[If there is no evidence, </br>the accused cannot be </br> found 
+guilty.]
+
+.white[We .big[**fail to reject** .yellow[.bold[H<sub>0</sub>]]].]
+]
+]
+]
+
+--
+
+.pull-right[
+.footnote[
+.big[
+.white[If there is evidence of guilt beyond a reasonable doubt, 
+the accused is found guilty.
+
+We .big[.bold[.lightgrey[reject] .yellow[H<sub>0</sub>]]].]
+]
+]
+]
+
+---
+class: middle
+background-color: black
+background-image: url(https://www.snopes.com/tachyon/2017/03/Ruth_Bader_Ginsburg_fb.jpg?resize=1200,630&quality=65)
+background-size: contain
+
+# .white[So what's a] .yellow[p-value].white[?]
+
+--
+
+### **p-value**: .white[the probability of obtaining </br>your data, if H<sub>0</sub> is TRUE.]
+
+--
+</br>
+
+# .white[...and "].yellow[significant].white["?]
+
+--
+
+### **Significance**: .white[obtaining a p-value below </br>an arbitrary threshold]
+
+---
+class: center, middle
+background-color: black
+
+# .lightgrey[High p-value: your data are likely with a true null.]
+
+# .lightgrey[Low p-value: your data are unlikely with a true null.]
+
+--
+
+.pull-left[
+# Low p-values do not tell you how likely your hypothesis is!
+]
+
+--
+
+.pull-right[
+# Low p-values are not "more significant" than high p-values!
+]
+
+---
+background-color: black
+background-image: url(https://larspsyll.files.wordpress.com/2014/07/i_do_not_think_it_significant_means_what_you_think_it_means.jpg)
+background-size: contain
+
+---
+class: middle
+background-color: black
+background-image: url(https://www.freepngimg.com/thumb/arnold_schwarzenegger/29411-8-arnold-schwarzenegger-file.png)
+background-size: contain
+background-position: 100% 50%
+
+# .white[What is] **power**.white[?]
+
+### .lightgrey[The probability of (correctly) rejecting] 
+### **H<sub>0</sub>** .lightgrey[when] .yellow[H<sub>1</sub>] .lightgrey[is true.] 
+
+---
+
+# Back to the paradox...
+
+### The majority of published studies...
+
+1. ...include findings that are "statistically significant"
+
+2. ...are underpowered due to low sample size
+
+--
+
+.center[
+### How can this be? 
+### If power is low, we are unlikely to correctly reject H<sub>0</sub> when H<sub>1</sub> is true. 
+]
+
+---
+background-image: url(https://mchankins.files.wordpress.com/2013/04/filedrawer1.jpg)
+background-size: contain
+
+---
+class: title-slide-section-grey, middle, center
+
+# The .Large["**file drawer problem**"] has contributed </br> to the creation of .big[.yellow[even bigger]] problems
+
+---
+
+# Reproducibility crisis in Psychological science
+
+### What is the Open Science Collaboration?
+
+### What is the reproducibility crisis?
+
+--
+
+- 100 prominent papers analyzed, only 39% could be replicated
+
+> "Scientists and journal editors are biased--consciously or not--in  
+> what they publish"
+
+--
+
+### What exactly is the concern? 
+
+--
+
+- Type I error
+
+---
+background-color: lightgrey
+background-image: url(https://raw.githubusercontent.com/jvcasillas/media/master/rstats/memes/rstats_type12_error1.png)
+background-size: contain
+
+---
+background-image: url(./assets/img/osc_fig0.png)
+background-size: contain
+
+---
+background-image: url(./assets/img/osc_fig1.png)
+background-size: contain
+
+---
+background-image: url(https://raw.githubusercontent.com/jvcasillas/media/master/teaching/gifs/cant_believe.gif)
+background-size: contain
+
+---
+class: middle, center
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0Rnq1NpHdmw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+class: middle, center
+
+<iframe src="https://projects.fivethirtyeight.com/p-hacking/index.html?initialWidth=1024&childId=phacking&parentTitle=Science%20Isn’t%20Broken%20%7C%20FiveThirtyEight&parentUrl=https%3A%2F%2Ffivethirtyeight.com%2Ffeatures%2Fscience-isnt-broken%2F%23part1#part1" style="border:none;" height="600" width="100%"></iframe>
+
+---
+class: title-slide-section-grey, middle, center
+
+# Do we know what we think we know? <br>(probably not)
+
+--
+
+.big[
+"**Innovation points out paths that are possible;  
+replication points out paths that are likely;  
+progress relies on both**" (OSC, 2015)
+]
+
+---
+
+
+
+
+
+
+
+
+
+class: title-slide-section-red, middle
+
+# So let's test some hypotheses...
+
+---
+
+layout: true
+
+# t-test
+
+---
+
+- Compares two sample distibutions to determine if they are different
+
+- What do we mean by 'different'?
+
+--
+
+- We consider the sample distributions 'different' if the relationship between 
+them is due to something other than random chance
+
+- Normally we analyze the probability that a real relationship exists
+
+- A t-test determines if the diference between two averages is equal to 0
+
+--
+
+```{r, echo=FALSE, fig.align='center', fig.width=12, fig.height=3.8, fig.retina=2, cache=TRUE}
+group <- c(rep('g1', 3000), rep('g2', 3000))
+var1 <- rnorm(n = 3000, mean = -10, sd = 20)
+var2 <- rnorm(n = 3000, mean = 10, sd = 20)
+var <- c(var1, var2)
+ex_df <- data.frame(group, var)
+
+ggplot(ex_df, aes(var)) + 
+  geom_density(aes(lty = group, fill = group), alpha = 0.5) + 
+  geom_vline(xintercept = mean(var1)) + 
+  geom_vline(xintercept = mean(var2), lty = 2) + 
+  scale_fill_brewer(palette = 'Set1') + 
+  theme_bw(base_size = 18, base_family = 'Times')
+```
+
+---
+
+- There are several types of t-tests
+- We are interested in two:
+	1. independent samples
+	2. paired samples
+
+--
+
+.pull-left[
+
+### Independent samples
+
+```{r, echo=FALSE, results='asis'}
+ind_samp <- tribble(
+  ~'name', ~'group', ~'score', 
+   'John',  'g1',      250, 
+   'Jane',  'g1',      340, 
+   'Jimmy', 'g2',      460, 
+   'Jessy', 'g2',      200)
+
+mutate(ind_samp, group  = cell_spec(group, "html", color = 'white', 
+                              background = factor(group, 
+                                    c("g1", "g2"), c("blue", "#cc0033")))) %>% 
+kable(., format = 'html', escape = F) 
+```
+
+]
+
+.pull-right[
+
+### Paired samples
+
+```{r, echo=FALSE, results='asis'}
+
+prd_samp <- tribble(
+  ~'name',     ~'test1', ~'test2', 
+   'Mike',      35,       67, 
+   'Melanie',   50,       46, 
+   'Melissa',   90,       86, 
+   'Mitchell',  78,       91)
+
+kable(prd_samp, format = 'html', escape = F) %>% 
+column_spec(2, color = 'blue') %>% 
+column_spec(3, color = '#cc0033')
+
+```
+
+]
+
+---
+
+### Independent samples
+
+.pull-left[
+
+
+```{r, eval=FALSE}
+ind_samp <- tribble(
+  ~'name', ~'group', ~'score', 
+   'John',  'g1',      250, 
+   'Jane',  'g1',      340, 
+   'Jimmy', 'g2',      460, 
+   'Jessy', 'g2',      200)
+```
+
+```{r, results='asis', echo=FALSE}
+mutate(ind_samp, group  = cell_spec(group, "html", color = 'white', 
+                              background = factor(group, 
+                                    c("g1", "g2"), c("blue", "#cc0033")))) %>% 
+kable(., format = 'html', escape = F) 
+```
+
+]
+
+.pull-right[
+
+```{r, 'ind-samp', cache=TRUE, echo=TRUE}
+# t-test: # independent 2-group
+t.test(score ~ group, data = ind_samp)
+```
+
+]
+
+---
+
+### Paired
+
+.pull-left[
+
+
+```{r, eval=FALSE}
+prd_samp <- tribble(
+  ~'name',     ~'test1', ~'test2', 
+   'Mike',      35,       67, 
+   'Melanie',   50,       46, 
+   'Melissa',   90,       86, 
+   'Mitchell',  78,       91)
+```
+
+```{r, results='asis', echo=FALSE}
+kable(prd_samp, format = 'html', escape = F) %>% 
+column_spec(2, color = 'blue') %>% 
+column_spec(3, color = '#cc0033')
+```
+
+]
+
+.pull-right[
+
+```{r, cache=TRUE}
+# t-test: paired sample
+t.test(prd_samp$test1, prd_samp$test2, 
+       paired = TRUE)
+```
+
+]
+
+---
+layout: false
+class: middle
+
+```{r, results='asis', echo=FALSE}
+tribble(
+ ~' ',       ~'  ',                ~`H0 is true`,  ~`H0 is false`,
+  'Decision', 'Fail to reject H0',  'Correct',      'Type II error',
+  'Decision', 'Reject H0',          'Type I error', 'Correct') %>%  
+  mutate(., 
+    `H0 is true`  = cell_spec(`H0 is true`, "html", color = 'white', 
+                              background = factor(`H0 is true`, 
+                                    c("Correct", "Type I error"), 
+                                    c("blue", "#cc0033"))), 
+    `H0 is false` = cell_spec(`H0 is false`, "html", color = 'white', 
+                              background = factor(`H0 is false`, 
+                                    c("Type II error", "Correct"), 
+                                    c("#cc0033", "blue")))) %>% 
+  kable(., format = 'html', escape = F) %>% 
+  kable_styling("hover", full_width = F, font_size = 26) %>%
+  column_spec(1, bold = T) %>%
+  column_spec(2, width = "8em", border_right = TRUE) %>% 
+  collapse_rows() %>% 
+  add_header_above(c("", "", "Reality" = 2)) 
+```
+
+--
+
+<blockquote align='center' class="twitter-tweet" data-lang="de">
+<a href="https://twitter.com/drob/status/781276244310622209"></a>
+</blockquote>
+
+---
+class: center, middle
+
+<iframe src="https://faculty.washington.edu/chudler/java/ready.html" style="border:none;" height="500" width="800"></iframe>
+
+---
+layout:false
+class: title-slide-final, middle
+background-image: url(https://github.com/jvcasillas/ru_xaringan/raw/master/img/logo/ru_shield.png), url(https://cdn.freebiesupply.com/logos/large/2x/github-octocat-logo-png-transparent.png)
+background-size: 55px, 100px
+background-position: 9% 15%, 89% 15%
+
+# That's it.
+
+## Thank you!
+
+### You can find some very basic tutorials related to 
+### R, RStudio, RMarkdown, GitHub, and Slack [here][here]
+
+[here]: http://www.jvcasillas.com/ru_teaching/ru_spanish_589/589_01_s2018/sources/tuts/index.html
