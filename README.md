@@ -2,11 +2,11 @@ Introduction to R
 =================
 
 - Coding standards
-- ggplot2
+- [ggplot2](https://www.jvcasillas.com/intro_to_r/ggplot2/index.html)
 - Tidy data
 - Data manipulation
 - Data presentation
-- NHST
+- [NHST](https://www.jvcasillas.com/intro_to_r/nhst/index.html)
 
 ----
 
